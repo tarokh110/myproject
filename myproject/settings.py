@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp.apps.MyappConfig',
-    'listing.apps.ListingConfig'
+
+    'accounts.apps.AcountsConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -80,12 +82,22 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #   'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#DATABASE_CONNECTION_POOLING = False   bezaram ya na!
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+
+#'default': {
+     #   'NAME':'mydb',
+    #    'ENGINE': 'django.db.backends.postgresql',
+   #     'HOST': "localhost",
+  #      'USER': 'postgres ',
+ #       'PASSWORD': 'postgres',
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -132,3 +144,15 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(  BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGES_TAGS = {
+    messages.ERROR:'danger',
+}
+
+"""""
+from django.core.urlresolvers import reverse_lazy
+LOGIN_REDIRECT_URL = ''
+LOGIN_URL = reverse_lazy('login')
+
+"""""

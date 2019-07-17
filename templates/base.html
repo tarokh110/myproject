@@ -3,12 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tarokh</title>
+    <title> MY {% block title %}
+
+    {% endblock %} </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     <!-- bOOtstrap -->
     <link rel="stylesheet" href="{% static 'admin/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'admin/css/myapp.css' %}">
@@ -22,6 +25,34 @@
 
 <body>
 {% include 'partials/_navbar.html' %}
+        <div id="header">
+            <span class="logo">Bookmarks</span>
+            {% if request.user.is_authenticated %}
+            <ul class="blockquote">
+            <li {% if  section == "profile" %}class="badge-light"{% endif %}>
+            <a href="{% url "myapp:about" %}">My dashboard</a>
+            </li>
+
+
+            <li {% if section == "images" %}class="selected"{% endif %}>
+            <a href="#">Images</a>
+            </li>
+            <li {% if section == "people" %}class="selected"{% endif %}>
+            <a href="#">People</a>
+            </li>
+            </ul>
+            {% endif %}
+            <span class="user">
+            {% if  request.user.is_authenticated %}
+            Hello tarokh {{ request.user.last_name }},
+            <a href="{% url "account:logout" %}">Logout</a>
+
+            {% else %}
+            <a href="{% url "account:login" %}">Log-in</a>
+            {% endif %}
+            </span>
+        </div>
+
 
     {% block content %}    {% endblock %}
 
