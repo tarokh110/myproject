@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <form class="form-control" method="post">
+
+
+          {% csrf_token %}
+                 {% for field in form %}
+     <div>
+       {{ field.label_tag }}<br>
+       {{ field }}
+     {{ form.password.errors }}
+       {% for error in field.errors %}
+
+         <p style="color: #7affd6">{{ error }}</p>
+       {% endfor %}
+     </div>
+   {% endfor %}
+             <input type="submit" class="btn btn-primary" value="Submit">
+
+        </form>
+</div>
+
+{% endblock %}

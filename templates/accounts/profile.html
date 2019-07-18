@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>welcome {{ request.user.last_name }} tarokh</p>
+{#    <a href="{% url 'account:logout' %} }">Log_out</a>#}
+    <a href="{% url 'account:password_change' %}">Password change</a>
+
+{% endblock %}
