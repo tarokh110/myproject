@@ -1,27 +1,10 @@
 from django.contrib import admin
-from accounts.models import user,Post
+from accounts.models import Post, Comment
 
 # Register your models here.\
-"""
-@admin.register(product)
-class productAdmin(admin.ModelAdmin):
-    list_display =('price','votes','feature')
-   fieldsets = (
-        (None, {
-            'fields': ('votes')
-        }),
-        ('Availability', {
-            'fields': ('price')
-        }),
-    )
-"""
-
-admin.site.register(user)
-
-
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'publish','status' )
+    list_display = ('title', 'slug', 'publish','status',  )
     search_fields= ('title', 'body')
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'publish'
@@ -29,9 +12,11 @@ class PostAdmin(admin.ModelAdmin):
    # list_filter =
     list_filter = ('status', 'created', 'publish')
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'active', 'created')
+    list_filter = ('active', 'created')
+    search_fields = ('name', 'email', 'updated')
 
+
+admin.site.register(Comment, CommentAdmin)
 admin.site.register(Post, PostAdmin)
-
-
-class useradmin(admin.ModelAdmin):
-    list_filter = ('s')

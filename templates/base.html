@@ -53,8 +53,13 @@
             </span>
         </div>
 
+    {% block content %}
 
-    {% block content %}    {% endblock %}
+
+
+
+       {% endblock %}
+{% include "partials/pagination.html" with page=posts %}
 
 <script src="{% static 'admin/js/Bootstrap_js/bootstrap.js' %}"></script>
 <script src=""></script>

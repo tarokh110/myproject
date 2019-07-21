@@ -1,8 +1,13 @@
 from django import forms
 from django.db import models
 from django.core import validators
-from accounts.models import user , books
+from accounts.models import user, Comment
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body')
 
 
 
@@ -14,7 +19,13 @@ class Newuser(forms.ModelForm):
 
 
 
+"""""
+class EmailPostForm(forms.ModelForm):
+    class Meta():
+        model = EmailPost
+        fields = ('name', 'email','comments' )
 
+"""""
 
 
 

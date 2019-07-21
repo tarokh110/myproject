@@ -155,4 +155,11 @@ from django.core.urlresolvers import reverse_lazy
 LOGIN_REDIRECT_URL = ''
 LOGIN_URL = reverse_lazy('login')
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'your_account@gmail.com'
+EMAIL_HOST_PASSWORD = '22924003_Tarokh'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 """""
+

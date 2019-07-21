@@ -5,7 +5,7 @@
 {% block content %}
     {% for post in posts %}
 {#        <a href=" {{ post.get_absolute_url }}">#}
-        <a href=" {% url 'post_detail' post.id %}">
+        <a href=" {% url 'account:post_detail'  post.id  %}">
             {{ post.title }}
         </a>
         <p class="">

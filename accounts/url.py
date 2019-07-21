@@ -18,7 +18,7 @@ urlpatterns = [
     path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done' ),
     path('blog/post/list', views.post_list ,name='post_list'),
-    path('blog/<int:id>', views.post_detail, name='post_detail')
+    path('blog/<int:id>/', views.post_detail, name='post_detail')
    #  reuqest mikhad be onvane argu ke to pdf nabood hamchin chizi !   path('logout-then-login', auth_views.logout_then_login(request='', login_url='registration/login.html'), name='logout-then-login'),
 
 ]
