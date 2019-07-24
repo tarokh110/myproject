@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp.apps.MyappConfig',
-
-    'accounts.apps.AcountsConfig'
+    'accounts.apps.AcountsConfig',
+    # 'taggit',
 
 ]
 
@@ -74,7 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -82,22 +79,22 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #   'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #   'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-#DATABASE_CONNECTION_POOLING = False   bezaram ya na!
+# DATABASE_CONNECTION_POOLING = False   bezaram ya na!
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 
-#'default': {
-     #   'NAME':'mydb',
-    #    'ENGINE': 'django.db.backends.postgresql',
-   #     'HOST': "localhost",
-  #      'USER': 'postgres ',
- #       'PASSWORD': 'postgres',
+# 'default': {
+#   'NAME':'mydb',
+#    'ENGINE': 'django.db.backends.postgresql',
+#     'HOST': "localhost",
+#      'USER': 'postgres ',
+#       'PASSWORD': 'postgres',
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -114,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -128,7 +124,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -141,13 +136,14 @@ STATICFILES_DIRS = (
 
 # Media folder settings  // for user s uploads // joda tarif mikonim az static , bekhatere sequrity
 
-MEDIA_ROOT = os.path.join(  BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Messages
 from django.contrib.messages import constants as messages
+
 MESSAGES_TAGS = {
-    messages.ERROR:'danger',
+    messages.ERROR: 'danger',
 }
 
 """""
@@ -162,4 +158,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 """""
-

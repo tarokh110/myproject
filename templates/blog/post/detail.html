@@ -5,34 +5,34 @@
 {% block content %}
 
 
-        <p class="">
-            Published {{ post.publish }} by {{ post.author }}
-        </p>
+    <p class="">
+        Published {{ post.publish }} by {{ post.author }}
+    </p>
 
     {% with comments.count as total_comments %}
         {{ total_comments }} comment {{ total_comments|pluralize }}
     {% endwith %}
 
     <h1>{{ post.title }}</h1>
-        {{ post.body }}
+    {{ post.body }}
     {% for comment in comments %}
         <div class="container">
-        <h4 class="border-info">Comment {{ forloop.revcounter }} by {{ comment.name }} </h4>
-        <h5>{{ comment.created }}</h5>
+            <h4 class="border-info">Comment {{ forloop.revcounter }} by {{ comment.name }} </h4>
+            <h5>{{ comment.created }}</h5>
 
-        {{ comment.body|linebreaks }}
+            {{ comment.body|linebreaks }}
         </div>
-        {% empty %}
+    {% empty %}
         <h2>NO comments yet</h2>
     {% endfor %}
     {% if Added %}
         <h1> your comment has been added</h1>
     {% else %}
         <h2> add a new comment</h2>
-    <form action="" method="post">
-        {{ comment_form.as_p }}
-        {% csrf_token %}
-        <input type="submit" value="Add comment">
-    </form>
+        <form action="" method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Add comment">
+        </form>
     {% endif %}
 {% endblock %}

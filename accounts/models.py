@@ -3,6 +3,9 @@ from django.utils import timezone
 from django import forms
 from django.urls import reverse
 from django.contrib.auth.models import User
+#from taggit.managers import TaggableManager
+
+
 
 # # Create your models here.
 
@@ -26,10 +29,12 @@ class PublishedManager (models.Manager):
 
 class Post(models.Model):
     published = PublishedManager()
+   # tags = TaggableManager()
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
+
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=250,
                                 unique_for_date='publish')
@@ -40,6 +45,7 @@ class Post(models.Model):
     created = models.DateTimeField( auto_now_add=True )
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length= 10,choices=STATUS_CHOICES,default='draft')
+
     class Meta:
         ordering = ('-publish',)
 
@@ -58,7 +64,7 @@ class Comment(models.Model):
         ordering = ('created',)
 
 class Tag(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ManyToManyField(Post)
     name = models.CharField(max_length=30)
 
 

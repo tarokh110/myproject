@@ -10,13 +10,11 @@ class CommentForm(forms.ModelForm):
         fields = ('name', 'email', 'body')
 
 
-
 class Newuser(forms.ModelForm):
     class Meta():
         model = user
 
-        fields = ('last_name','password')
-
+        fields = ('last_name', 'password')
 
 
 """""
@@ -26,21 +24,6 @@ class EmailPostForm(forms.ModelForm):
         fields = ('name', 'email','comments' )
 
 """""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #
 # def Check_name(value):

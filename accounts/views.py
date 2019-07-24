@@ -50,7 +50,7 @@ def signUp(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return redirect('dashboard')
+            return redirect('account:profile')
         else:
             print('error')
     return render(request, 'acounts/signUp.html', {'form': form})
